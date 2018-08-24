@@ -98,11 +98,7 @@
 			<version>1.2.47</version>
 		</dependency>
 
-		<dependency>
-			<groupId>c3p0</groupId>
-			<artifactId>c3p0</artifactId>
-			<version>0.9.1.2</version>
-		</dependency>
+		
 		
 		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>
@@ -136,7 +132,13 @@
 		    <artifactId>spring-tx</artifactId>
 		    <version>3.0.5.RELEASE</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+		    <groupId>jstl</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
+		</dependency>
+		
 		
 
 		

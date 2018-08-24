@@ -10,13 +10,6 @@
 	<context:component-scan base-package="po"></context:component-scan> 
 	<context:component-scan base-package="mapper"></context:component-scan> 
 	<context:property-placeholder location="classpath:jdbc.properties"/>
-	<!-- 数据源配置 -->
-	<!-- <bean id="dataSource" class="com.mchange.v2.c3p0." destroy-method="close">
-		<property name="driverClass" value="${driverClassName}"></property>
-		<property name="jdbcUrl" value="${url}"></property>
-		<property name="user" value="${username}"></property>
-		<property name="password" value="${password}"></property>
-	</bean>  -->
    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.driver}"></property>
 		<property name="url" value="${jdbc.url}"></property>
