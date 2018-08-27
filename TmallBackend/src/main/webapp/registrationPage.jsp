@@ -14,8 +14,6 @@
     <title>注册页面</title>
 </head>
 <body>
-    <!-- <iframe src="commonNav.html" align="middle" seamless="seamless" frameborder="0" width="100%" height="34px"></iframe>
-    <iframe src="commonSimpleSearch.html" align="middle" seamless="seamless" frameborder="0" width="100%" height="110px"></iframe> -->
     <jsp:include page="commonNav.jsp"></jsp:include>
     <jsp:include page="commonSimpleSearch.jsp"></jsp:include>
         <div class="registerDiv">
@@ -49,13 +47,13 @@
             		</tr>
                     <tr>
             			<td colspan="2" class="registerButtonTD">
-            				<a href="registerSuccess.jsp"><button>提   交</button></a>
+            				<a href="javascript:void(0);"><button>提   交</button></a>
             			</td>
             		</tr>
                 </tbody>
             </table>
         </div>
     <iframe src="commonFoot.html" frameborder="0" width="100%" height="600px;"></iframe>
-
+	<script type="text/javascript" src="js/registrationPage.js"></script>
 </body>
 </html>

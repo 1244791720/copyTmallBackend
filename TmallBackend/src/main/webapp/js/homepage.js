@@ -95,10 +95,13 @@ var productItemImgMask = () => {
     })
 
 }
+
+
 var _main = function() {
     controlEachCategory()
     controlCarouselOfProduct()
     productItemImgMask()
     maoerChange()
+  
 }
 window.onload = _main()

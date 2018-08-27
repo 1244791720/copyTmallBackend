@@ -24,7 +24,7 @@
                 <img src="image/site/simpleLogo.png">
             </a>
             <img id="loginBackgroundImg" class="loginBackgroundImg" src="image/site/6702.png">
-            <form action="<%=basePath%>user/login" method="post" class="loginForm">
+            <form action="forelogin" method="post" class="loginForm">
                 <div class="loginSmallDiv" id="loginSmallDiv" style="left: 674px;">
                     <div class="loginErrorMessageDiv">
                         <div class="alert alert-danger">

@@ -10,7 +10,22 @@
 <link rel="stylesheet" href="css/commonNav.css" />
 <title>天猫公共导航部分</title>
 </head>
-
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+	pageContext.setAttribute("basePath", basePath);
+ %>
+ 
+<%
+	Boolean enableLogin = false;
+	String sLogin = (String)session.getAttribute("enableLogin");
+	if (sLogin != null) {
+		if (sLogin.equals("true")) {
+			enableLogin = true;
+		}
+	}
+	/* String name = (String)session.getAttribute("name"); */
+%>
 <body>
     <nav class="top">
         <a href="homepage.jsp">
@@ -19,9 +34,19 @@
         </a>
 
         <span>喵，欢迎来天猫</span>
-            <a href="login.jsp">请登录</a>
-            <a href="registrationPage.jsp">免费注册</a>
-
+        	<%
+        		if (enableLogin) {
+        	%>
+        		<a href="">${name}</a>
+        		<a href="<%=basePath%>user/loginOut">退出登录</a>
+        	<% 
+        		} else {
+        	%>
+        		<a href="login.jsp">登录</a>
+            	<a href="registrationPage.jsp">免费注册</a>
+        	<% 
+        		}
+        	%>
         <span class="pull-right">
             <a href="#nowhere">我的订单</a>
             <a href="#nowhere">

@@ -2,6 +2,7 @@
 <!DOCTYPE configuration SYSTEM "http://mybatis.org/dtd/mybatis-3-config.dtd">
 	<configuration>
 		<typeAliases>
+			<!-- <typeAlias type="po.Category" alias="category"/> -->
 			<package name="po"/>
-		</typeAliases>
+		</typeAliases> 
 	</configuration>

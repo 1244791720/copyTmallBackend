@@ -31,12 +31,6 @@
         <param-value>classpath:spring/applicationContext.xml</param-value>  
     </context-param>  
     
-    <!-- springmvc配置 -->
-  <!--   <servlet>
-   	<servlet-name>dispatcherServlet</servlet-name>
-    	<servlet-class>org.springframework.web.servlet.d</servlet-class>
-    </servlet> -->
-    <!-- The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
