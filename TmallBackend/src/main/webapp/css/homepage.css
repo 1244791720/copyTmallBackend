@@ -64,6 +64,9 @@ div.productsAsideCategorys a {
     font-size: 14px;
     margin: 8px;
 }
+div.eachCategory a {
+	color:black;
+}
 
 div.categoryWithCarousel div.productsAsideCategorys {
     width: 825px;
@@ -132,7 +135,6 @@ div.productItem img {
     width: 187px;
     height: 190px;
     position: relative;
-    left:-20px;
 }
 
 div.productItem span.productItemDesc {
@@ -168,4 +170,8 @@ img.endpng {
     display: block;
     width: 82px;
     margin: 0 auto;
+}
+
+div.carousel-of-product,div.carousel-of-product img{
+	width:100%;
 }

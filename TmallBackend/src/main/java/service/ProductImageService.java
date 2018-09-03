@@ -20,4 +20,13 @@ public class ProductImageService {
 		return l;
 		
 	}
+	
+	public static List<ProductImage> getProductImagesByPid(int pid) {
+		SqlSession  sq = MybatisUtil.openSession();
+		ProductImageMapper cm = sq.getMapper(ProductImageMapper.class);
+		
+		List<ProductImage> l = cm.getProductImagesByPid(pid);
+		return l;
+		
+	}
 }

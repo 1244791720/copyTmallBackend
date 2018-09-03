@@ -6,10 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js""></script>
-    <link rel="stylesheet" href="css/base.css" />
+    <script src="js/jquery.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<script src="js/bootstrap.min.js""></script>
     <link rel="stylesheet" href="css/commonSimpleSearch.css" />
     <title>公共简易搜索栏</title>
 </head>
@@ -21,7 +20,7 @@
         <form action="">
             <div class="simpleSearchDiv pull-right">
                 <input type="text" placeholder="平衡车 原汁机" value name="keyword" />
-                <button class="searchButton" type="submit">搜天猫</button>
+                <button class="searchButton" type="submit" >搜天猫</button>
                 <div class="searchBelow">
                     <span>
                         <a href="">冰箱</a>

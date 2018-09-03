@@ -1,6 +1,5 @@
 package controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -26,6 +25,9 @@ public class UserController {
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public String login(HttpServletRequest request, HttpSession session, Map<String, String> map) throws IOException {
+		String url = request.getHeader("Referer");
+//		String pid = (String) session.getAttribute("pid");
+//		String url = "foreproduct/" + pid;
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 		Boolean enableLogin = false;
@@ -33,11 +35,8 @@ public class UserController {
 		List<User> list = UserService.getAllUser();
 		
 		for (User u : list) {
-			System.out.println(name);
-			System.out.println(u.getName().equals(name));
 			hasUser = u.getName().equals(name) && u.getPassword().equals(password);
 			if (hasUser) {
-				System.out.println("dsad");
 				enableLogin = true;
 				break;
 			}
@@ -45,16 +44,23 @@ public class UserController {
 		if (enableLogin) {
 			session.setAttribute("enableLogin", "true");
 			session.setAttribute("name", name);
-			return "redirect:/homepage.jsp";
+			if (url.equals("http://localhost:8080/TmallBackend/login.jsp")) {
+				return "redirect:/homepage.jsp";
+			}
+			return "redirect:" + url;
 		}
 		map.put("errorMessage", "µÇÂ¼´íÎó");
 		return "error";
 	}
 	
 	@RequestMapping("loginOut")
-	public String loginOut(HttpSession session) {
+	public String loginOut(HttpSession session, HttpServletRequest request) {
 		session.removeAttribute("enableLogin");
-		return "redirect:/homepage.jsp";
+		String url = request.getHeader("Referer");
+//		if (url.equals("http://localhost:8080/TmallBackend/login.jsp")) {
+//			return "redirect:/homepage.jsp";
+//		}
+		return "redirect:" + url;
 	}
 	
 	@RequestMapping("/registSuccess")
@@ -80,4 +86,5 @@ public class UserController {
 		pw.flush();
 
 	}
+
 }

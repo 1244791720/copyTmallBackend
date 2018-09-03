@@ -1,6 +1,7 @@
 body {
     font-size: 12px;
     font-family: Arial;
+    
 }
 
 a{
@@ -12,7 +13,7 @@ a{
 }
 
 nav {
-    max-width: 1024px;
+   /*  max-width: 1024px; */
     margin: 0 auto;
 }
 nav.top{
@@ -30,4 +31,51 @@ nav.top span, nav.top a{
 nav.top a:hover{
     color: #C40000;
     text-decoration: none;
+}
+
+div.loginInput {
+    border: 1px solid #CBCBCB;
+    margin: 20px 0px;
+}
+
+div.loginInput span.loginInputIcon {
+    margin: 0px;
+    background-color: #CBCBCB;
+    width: 40px;
+    height: 40px;
+}
+
+span.loginInputIcon span.glyphicon {
+    font-size: 22px;
+    position: relative;
+    left: 9px;
+    top: 9px;
+    color: #606060;
+}
+
+.modal-content {
+	border:none!important;
+	border-radius: 0px!important;
+}
+
+.removeMarginAndPadding {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+
+element.style {
+}
+div.loginInput span, div.loginInput input {
+    display: inline-block;
+}
+div.loginInput input {
+    display: inline-block;
+    border: 0px solid transparent;
+    width: 244px;
+    height: 30px;
+    position: relative;
+    left: 6px;
+    top: 6px;
+    background-color : rgba(250, 255, 189);
 }

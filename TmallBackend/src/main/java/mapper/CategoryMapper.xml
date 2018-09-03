@@ -6,4 +6,8 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="getAllCategory" resultType="category">
 		select * from category
 	</select>
+	
+	<select id="getCategoryByPid" resultType="category">
+		select * from category where pid = ${pid}
+	</select>
 </mapper>

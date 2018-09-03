@@ -4,10 +4,11 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
-<script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js""></script>
+<script src="js/jquery.min.js"></script>
+<link href="css/bootstrap.css" rel="stylesheet">
+<script src="js/bootstrap.min.js""></script>
 <link rel="stylesheet" href="css/commonNav.css" />
+<script src="js/commonNav.js"></script>
 <title>天猫公共导航部分</title>
 </head>
 <%
@@ -53,6 +54,45 @@
             <span class=" glyphicon glyphicon-shopping-cart redColor" ></span>
             购物车<strong>0</strong>件</a>
         </span>
+        <!-- 触发模态框按钮 -->
+        <%
+        	if (!enableLogin) {
+       	%>
+       		<button class="btn btn-primary btn-lg" id="modalButton" style="display:none;" data-toggle="modal" data-target="#myModal">开始演示模态框</button>  
+       	<%
+        	}
+        %>
+         <!-- 模态框 -->
+        <div class="modal in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	          <div class="modal-dialog" style="width:384px">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <h4 class="modal-title" id="myModalLabel">账户登录</h4>
+			            </div>
+			            <form action="<%=basePath%>user/login" method="post">
+				            <div class="modal-body" style="width:336px;">
+					            		<div class="loginInput ">
+										<span class="loginInputIcon ">
+											<span class=" glyphicon glyphicon-user removeMarginAndPadding"></span>
+										</span>
+										<input id="name" name="name" placeholder="手机/会员名/邮箱" type="text">			
+									</div>
+									<div class="loginInput ">
+										<span class="loginInputIcon ">
+											<span class=" glyphicon glyphicon-lock"></span>
+										</span>
+										<input id="password" name="password" type="password" placeholder="密码">	
+									</div>
+				            		
+							</div>
+				            <div class="modal-footer">
+				                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				                <button type="submit" class="btn btn-primary" name="loginUser">登录</button>
+				            </div>
+			            </form>	
+			        </div><!-- /.modal-content -->
+			    </div>
+		</div>
     </nav>
 </body>
 </html>

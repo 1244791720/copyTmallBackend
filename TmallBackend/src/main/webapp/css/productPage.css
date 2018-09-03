@@ -288,6 +288,7 @@ div.productReviewTopPart {
 a.productReviewTopPartSelectedLink {
     padding: 0px 20px;
     color: #333333;
+    
 }
 
 a.selected {
@@ -297,7 +298,7 @@ a.selected {
     display: inline-block;
     font-weight: bold;
     line-height: 46px;
-    width: 90px;
+    width: 130px;
     text-align: center;
     position: relative;
 }
@@ -389,7 +390,7 @@ div.productParamterList span {
     display: block;
     width: 220px;
     float: left;
-    padding: 8px 0px;
+    padding: 8px 12px;
     color: #666666;
 }
 

@@ -17,7 +17,6 @@
  	List<Category> categorys = CategoryService.getAllCategory();
  	List<Product> products = ProductService.getAllProduct();
  	List<ProductImage> productImages = ProductImageService.getAllProductImage();
- 	/* System.out.print(productImages);  */
  %>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,10 +32,8 @@
     <title>首页</title>
 </head>
 <body>
-   <!--  <iframe src="commonNav.html" align="middle" seamless="seamless" frameborder="0" width="100%" height="34px"></iframe>
-    <iframe src="commonSearch.html" frameborder="0" width="100%" height="140px;"></iframe>  -->
    <jsp:include page="commonNav.jsp"></jsp:include>
-    <jsp:include page="commonSimpleSearch.jsp"></jsp:include> 
+    <jsp:include page="commonSearch.jsp"></jsp:include> 
     <div class="homepageDiv">
         <img src="image/site/catear.png" id="catear"style="left:240.5px;" class="catear" >
         <div class="categoryWithCarousel">
@@ -83,8 +80,7 @@
             							String s = prouduct.getSubTitle();
             							s = s.split(" ")[0];
             							%>
-            								<a href="foreproduct?pid=<%=prouduct.getId()%>"><%=s%></a>
-					                            
+            								<a href="foreproduct/<%=prouduct.getId()%>"><%=s%></a>				                            
             							<%
             							subTitleNum++;
             							
@@ -143,7 +139,7 @@
         					
         			%>
         				 <div class="productItem">	
-        					<a href="foreproduct?pid=<%=product.getId()%>">
+        					<a href="foreproduct/<%=product.getId()%>">
         					<%
         						for (ProductImage  productImage : productImages) {
         							if (productImage.getPid() == product.getId()) {

@@ -55,6 +55,6 @@ div.searchBelow a{
 img.logo{
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 25px;
     z-index:-1;
 }

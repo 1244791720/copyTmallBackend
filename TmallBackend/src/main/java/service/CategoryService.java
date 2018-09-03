@@ -18,4 +18,15 @@ public class CategoryService {
 		return l;
 		
 	}
+	
+	
+	public static Category getCategoryByPid(int pid) {
+		SqlSession  sq = MybatisUtil.openSession();
+		CategoryMapper cm = sq.getMapper(CategoryMapper.class);
+		
+		Category l = cm.getCategoryByPid(pid);
+		return l;
+		
+	}
+	
 }

@@ -28,4 +28,13 @@ public class ProductService {
 		return l;
 		
 	}
+	
+	public static Product getProductById(int id) {
+		SqlSession  sq = MybatisUtil.openSession();
+		ProductMapper cm = sq.getMapper(ProductMapper.class);
+		
+		Product l = cm.getProductById(id);
+		return l;
+		
+	}
 }

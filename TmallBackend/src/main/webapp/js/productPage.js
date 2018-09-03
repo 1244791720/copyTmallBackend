@@ -4,6 +4,8 @@ var log = console.log.bind(console)
 var controlBigImg = () => {
     var imgs = $('.smallImageDiv img')
     var bigImg = $('.bigImg')
+    var o = imgs[0].src
+    bigImg.attr('src',o)
     imgs.each(function(){
         var img = $(this)
         img.on('mouseover', function() {
@@ -30,30 +32,46 @@ var showProductDetailOrProductReview = () => {
         return false;
     })
 }
+//控制购物数量
+var controlBuyNum = () => {
+	  var updowns = $('.updown')
+	    var up = $(updowns[0])
+	    var down = $(updowns[1])
+	    var input = $('.productNumberSetting')
+	    up.on('click', function() {
+	        var num = input.val()
+	        num++
+	        input.val(num)
+	    })
+
+	    down.on('click', function() {
+	        var num = input.val()
+	        num--
+	        if (num <= 1) {
+	            num = 1
+	        }
+	        input.val(num)
+	    })
+}
+
+var controlBuyCartAndAddCart = () => {
+	var button = $('#modalButton')
+	var addCartLink = $('.addCartLink')
+	var buyCartLink = $('.buyCartLink')
+	addCartLink.on('click', function() {
+		console.log('dsada')
+		button.click()
+	})
+	buyCartLink.on('click', function() {
+		button.click()
+	})
+}
 
 var _main = () => {
     controlBigImg()
     showProductDetailOrProductReview()
-    var updowns = $('.updown')
-    var up = $(updowns[0])
-    var down = $(updowns[1])
-    var input = $('.productNumberSetting')
-    up.on('click', function() {
-        var num = input.val()
-        num++
-        input.val(num)
-    })
-
-    down.on('click', function() {
-        var num = input.val()
-        num--
-        if (num <= 1) {
-            num = 1
-        }
-        input.val(num)
-    })
-    log('up',up)
-    log('down',down)
+    controlBuyNum()
+    controlBuyCartAndAddCart()
 }
 
 _main()

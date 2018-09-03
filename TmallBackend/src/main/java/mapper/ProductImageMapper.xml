@@ -7,5 +7,7 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 			select * from productimage
 		</select>
 		
-
+		<select id="getProductImagesByPid" resultType="productImage">
+			select * from productimage where pid = ${pid}
+		</select>
 	</mapper>
