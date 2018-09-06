@@ -1,3 +1,6 @@
+<%@page import="service.UserService"%>
+<%@page import="po.User"%>
+<%@page import="service.ShoppingCartService"%>
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <!DOCTYPE html>
@@ -26,6 +29,15 @@
 		}
 	}
 	/* String name = (String)session.getAttribute("name"); */
+	//获得当前用户uid
+	int uid = 0;
+	String userName = (String)session.getAttribute("name");
+		if (userName != null) {
+			User o = UserService.getUserByUsername(userName);
+			 uid = o.getId();
+		}	
+	//获得当前用户购物车数目
+	int num = ShoppingCartService.getUserAddShopingCartNum(uid);
 %>
 <body>
     <nav class="top">
@@ -50,9 +62,9 @@
         	%>
         <span class="pull-right">
             <a href="#nowhere">我的订单</a>
-            <a href="#nowhere">
+            <a href="shoppingCartPage.jsp">
             <span class=" glyphicon glyphicon-shopping-cart redColor" ></span>
-            购物车<strong>0</strong>件</a>
+            购物车<strong><%=num%></strong>件</a>
         </span>
         <!-- 触发模态框按钮 -->
         <%

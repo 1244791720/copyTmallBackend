@@ -1,7 +1,10 @@
 body {
     width: 1024px;
 }
-
+.addSuccess {
+	/* background-color: blue !important; */
+	cursor: not-allowed;
+}
 .flipx {
     -moz-transform:scaleX(-1);
     -webkit-transform:scaleX(-1);

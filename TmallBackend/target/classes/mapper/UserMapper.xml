@@ -16,4 +16,10 @@ PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
 	<select id="getUserById" resultType="user">
 		select * from user where id = ${uid}
 	</select>
+	
+	<select id="getUserByUsername" resultType="user">
+		select * 
+		from user 
+		where name = '${username}'
+	</select>
 </mapper>

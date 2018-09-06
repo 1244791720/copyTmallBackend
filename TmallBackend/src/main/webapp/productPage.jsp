@@ -36,20 +36,29 @@
 		pageContext.setAttribute("basePath", basePath);
 	 %>
 	<%
-		String sLogin = (String)session.getAttribute("enableLogin");
-		String pid = (String)session.getAttribute("pid");
+		String sLogin = (String)session.getAttribute("enableLogin");  //账号登陆验证成功
+		//产品id
+		String pid = (String)session.getAttribute("pid"); 
 		int ipid = Integer.parseInt(pid);
+		//产品cid
 		Product p = ProductService.getProductById(ipid); 
 		int cid = p.getCid();
+		//reviews pImages propertys
 		List<Review> reviews = ReviewService.getAllReview();
 		List<ProductImage> pImages = ProductImageService.getProductImagesByPid(ipid);
 		List<Property> propertys = PropertyService.getPropertysByCid(cid);
-		/* System.out.println(enableLogin);  */  
+		//获取添加购物车所需信息
+		int uid = 0;
+		String userName = (String)session.getAttribute("name");
+		if (userName != null) {
+			User o = UserService.getUserByUsername(userName);
+			 uid = o.getId();
+		}
 	%>  
 	<jsp:include page="commonNav.jsp"></jsp:include>
     <jsp:include page="commonSimpleSearch.jsp"></jsp:include>
     <div class="categoryPictureInProductPageDiv">
-	    <img class="categoryPictureInProductPage" src="image/category/<%=cid%>.jpg">
+	    <img class="categoryPictureInProductPage" src="image/category/<%=cid%>.jpg" width="100%">
     </div>
     <div class="productPageDiv">
         <div class="imgAndInfo">
@@ -158,12 +167,31 @@
                     <a href="<%=aHref1%>" class="buyCartLink">
                         <button class="buyButton">立即购买</button>
                     </a>
-                    <a href="<%=aHref2%>" class="addCartLink">
-                        <button class="addCartButton">
-                            <span class="glyphicon glyphicon-shopping-cart flipx"></span>
-                            加入购物车
-                        </button>
-                    </a>
+                <%
+	                String addSuccess = (String)session.getAttribute("addSuccess");
+                	session.setAttribute("addSuccess", "");
+	                if ("true".equals(addSuccess)) {
+	                	aHref2 = "javascript:void(0);";
+	            %>
+	            <a href="<%=aHref2%>" class="addCartLink">
+	                        <button class="addCartButton addSuccess">
+	                            <span class="glyphicon glyphicon-shopping-cart flipx"></span>
+	                           		 已加入购物车
+	                        </button>
+	            </a>
+	            <%
+	                } else {
+	            %>
+	            	<a href="<%=aHref2%>" class="addCartLink">
+	                        <button class="addCartButton">
+	                            <span class="glyphicon glyphicon-shopping-cart flipx"></span>
+	                           		 加入购物车
+	                        </button>
+	            	</a>
+	            <%    	
+	                }   
+                %>
+                    
                 </div>
             </div>
             <div style="clear:both;"></div>
@@ -256,5 +284,15 @@
     <iframe src="commonFoot.html" frameborder="0" width="100%" height="600px;"></iframe>
 
     <script src="js/productPage.js"></script>
+    <script type="text/javascript">
+    	console.log($('.productNumberSetting').attr('value'))
+    	//添加购物车时,获取添加到购物车的商品数量,并传递给购物车添加接口
+    	$('.addCartLink').on('click', function() {
+    		var num = $('.productNumberSetting').attr('value')
+        	var href = $('.addCartLink').attr('href') + num + '+' + <%=uid%> + '+' + <%=pid%>
+        	$('.addCartLink').attr('href', href)
+    	})
+    	
+    </script>
 </body>
 </html>

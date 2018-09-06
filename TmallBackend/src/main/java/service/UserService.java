@@ -36,4 +36,12 @@ public class UserService {
 		return l;
 		
 	}
+	public static User getUserByUsername(String username) {
+		SqlSession  sq = MybatisUtil.openSession();
+		UserMapper cm = sq.getMapper(UserMapper.class);
+		
+		User l = cm.getUserByUsername(username);
+		return l;
+		
+	}
 }
